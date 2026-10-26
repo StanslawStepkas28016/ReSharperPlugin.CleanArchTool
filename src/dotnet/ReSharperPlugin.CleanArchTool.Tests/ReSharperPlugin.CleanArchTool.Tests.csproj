@@ -18,6 +18,9 @@
 
   <ItemGroup>
     <Compile Remove="test/**/*" />
+    <Compile Include="test\data\Analyzers\ClassTooLong\LongClass.cs" />
+    <Compile Include="test\data\Analyzers\ClassTooLong\ShortClass.cs" />
+    <Compile Include="test\data\Util\HealthService.cs" />
     <None Include="test/**/*" />
   </ItemGroup>
 

@@ -122,12 +122,12 @@ JVM_TEMP_FILE=$BUILD_DIR/gradle-jvm-temp.tar.gz
 if [ "$darwin" = "true" ]; then
     case $JVM_ARCH in
     x86_64)
-        JVM_URL=https://download.oracle.com/java/17/archive/jdk-17.0.3.1_macos-x64_bin.tar.gz
-        JVM_TARGET_DIR=$BUILD_DIR/jdk-17.0.3.1_macos-x64_bin-1bcf03
+        JVM_URL=https://download.oracle.com/java/21/latest/jdk-21_macos-x64_bin.tar.gz
+        JVM_TARGET_DIR=$BUILD_DIR/jdk-21_macos-x64_bin
         ;;
     arm64)
-        JVM_URL=https://download.oracle.com/java/17/archive/jdk-17.0.3.1_macos-aarch64_bin.tar.gz
-        JVM_TARGET_DIR=$BUILD_DIR/jdk-17.0.3.1_macos-aarch64_bin-297fa2
+        JVM_URL=https://download.oracle.com/java/21/latest/jdk-21_macos-aarch64_bin.tar.gz
+        JVM_TARGET_DIR=$BUILD_DIR/jdk-21_macos-aarch64_bin
         ;;
     *)
         die "Unknown architecture $JVM_ARCH"
