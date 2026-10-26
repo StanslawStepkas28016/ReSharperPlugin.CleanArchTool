@@ -12,7 +12,7 @@ using NUnit.Framework;
 namespace ReSharperPlugin.CleanArchTool.Tests
 {
     [ZoneDefinition]
-    public class CleanArchToolTestEnvironmentZone : ITestsEnvZone, IRequire<PsiFeatureTestZone>, IRequire<ICleanArchToolZone> { }
+    public class CleanArchToolTestEnvironmentZone : ITestsEnvZone, IRequire<PsiFeatureTestZone>, IRequire<ZoneMarker> { }
 
     [ZoneMarker]
     public class ZoneMarker : IRequire<ICodeEditingZone>, IRequire<ILanguageCSharpZone>, IRequire<CleanArchToolTestEnvironmentZone> { }
