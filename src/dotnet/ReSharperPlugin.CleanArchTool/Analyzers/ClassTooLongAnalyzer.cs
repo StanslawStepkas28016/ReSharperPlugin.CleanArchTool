@@ -4,6 +4,7 @@ using JetBrains.ReSharper.Feature.Services.Daemon;
 using JetBrains.ReSharper.Psi.CSharp.Tree;
 using JetBrains.ReSharper.Psi.Tree;
 using ReSharperPlugin.CleanArchTool.CodeInspections;
+using ReSharperPlugin.CleanArchTool.Settings;
 
 namespace ReSharperPlugin.CleanArchTool.Analyzers;
 
@@ -51,7 +52,7 @@ public class ClassTooLongAnalyzer : ElementProblemAnalyzer<IClassLikeDeclaration
             1,
             data.SettingsStore.GetValue
             ((
-                    CleanArchSettings s
+                    CleanArchToolSettings s
                 ) => s.MaxClassLines
             )
         );
