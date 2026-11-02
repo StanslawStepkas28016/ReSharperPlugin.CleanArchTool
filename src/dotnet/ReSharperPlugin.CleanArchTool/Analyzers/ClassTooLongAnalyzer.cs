@@ -1,5 +1,6 @@
 using System;
 using JetBrains.DocumentModel;
+using JetBrains.ProjectModel;
 using JetBrains.ReSharper.Feature.Services.Daemon;
 using JetBrains.ReSharper.Psi.CSharp.Tree;
 using JetBrains.ReSharper.Psi.Tree;
@@ -16,7 +17,7 @@ namespace ReSharperPlugin.CleanArchTool.Analyzers;
 (
     typeof(IClassLikeDeclaration),
     HighlightingTypes =
-        new[] { typeof(ClassTooLongWarning) }
+        [typeof(ClassTooLongWarning)]
 )]
 public class ClassTooLongAnalyzer : ElementProblemAnalyzer<IClassLikeDeclaration>
 {
@@ -47,15 +48,12 @@ public class ClassTooLongAnalyzer : ElementProblemAnalyzer<IClassLikeDeclaration
 
         var lineCount = (int)(endLine - startLine) - 1;
 
-        var limit = Math.Max
-        (
-            1,
-            data.SettingsStore.GetValue
-            ((
-                    CleanArchToolSettings s
-                ) => s.MaxClassLines
-            )
-        );
+        var settings = classLikeDeclaration
+            .GetSolution()
+            .GetComponent<CleanArchToolSettingsStore>()
+            .GetSettings();
+
+        var limit = Math.Max(1, settings.MaxClassLines);
 
         if (lineCount <= limit) return;
 

@@ -8,7 +8,7 @@ namespace ReSharperPlugin.CleanArchTool.CodeInspections;
 public class ClassTooLongWarning : IHighlighting
 {
     private readonly DocumentRange _documentRange;
-    public readonly IClassLikeDeclaration ClassLikeDeclaration;
+    private readonly IClassLikeDeclaration _classLikeDeclaration;
 
     public ClassTooLongWarning(
         IClassLikeDeclaration classLikeDeclaration,
@@ -16,14 +16,14 @@ public class ClassTooLongWarning : IHighlighting
         int limit
     )
     {
-        ClassLikeDeclaration = classLikeDeclaration;
+        _classLikeDeclaration = classLikeDeclaration;
         _documentRange = documentRange;
-        ToolTip = $"Class exceeds the line limit. Current line limit is {limit}";
+        ToolTip = $"{Resources.MaxClassLines} {limit}.";
     }
 
     public bool IsValid()
     {
-        return ClassLikeDeclaration.IsValid();
+        return _classLikeDeclaration.IsValid();
     }
 
     public DocumentRange CalculateRange()

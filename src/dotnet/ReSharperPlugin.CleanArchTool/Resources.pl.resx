@@ -20,4 +20,28 @@
     <data name="SettingsDescription" xml:space="preserve">
         <value>Poniżej znajdują się ustawienia wtyczki CleanArchTool.</value>
     </data>
+    <data name="CreateConfigurationFile" xml:space="preserve">
+        <value>Utwórz plik konfiguracyjny</value>
+    </data>
+    <data name="ConfigurationFileAlreadyCreated" xml:space="preserve">
+        <value>Plik konfiguracyjny został już utworzony</value>
+    </data>
+    <data name="ConfigurationFileMissing" xml:space="preserve">
+        <value>Utwórz plik konfiguracyjny przed zapisaniem ustawień.</value>
+    </data>
+    <data name="InvalidMaxClassLines" xml:space="preserve">
+        <value>Limit linii w klasie musi być dodatnią liczbą całkowitą, która jest większa od zera.</value>
+    </data>
+    <data name="MaxClassLinesWarning" xml:space="preserve">
+        <value>Klasa przekracza limit linii. Obecny ustalony limit linii wynosi</value>
+    </data>
+    <data name="MaxClassMethodsWarning" xml:space="preserve">
+        <value>Klasa przekracza limit ilości method. Obecny ustalony limit metod wynosi</value>
+    </data>
+    <data name="MaxClassMethods" xml:space="preserve">
+        <value>Limit ilości metod w klasie</value>
+    </data>
+    <data name="InvalidMaxClassMethods" xml:space="preserve">
+        <value>Limit ilości metod w klasie musi być dodatnią liczbą całkowitą, która jest większa od zera.</value>
+    </data>
 </root>

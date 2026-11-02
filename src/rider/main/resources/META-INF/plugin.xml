@@ -9,15 +9,17 @@
     <description>
         <![CDATA[<p>Adds option pages to the settings dialog.</p>]]>
     </description>
-    
+
     <actions resource-bundle="messages.RiderPluginActionsBundle">
-        <action
-                id="ManagePluginSettingsAction"
-                class="com.jetbrains.rider.plugins.cleanarchtool.actions.ManagePluginSettingsAction"
-                icon="CleanArchToolThemedIcons.Icon">
-            <keyboard-shortcut keymap="$default" first-keystroke="shift control G"/>
-            <add-to-group group-id="Rider.UnitTesting.TopExplorerToolbar" anchor="last"/>
-        </action>
+        <group id="CleanArchTool.Group" text="CleanArchTool" icon="CleanArchToolThemedIcons.Icon">
+            <add-to-group group-id="MainToolbarRight" anchor="first"/>
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <action id="ManagePluginSettingsAction"
+                    class="com.jetbrains.rider.plugins.cleanarchtool.actions.ManagePluginSettingsAction"
+                    icon="CleanArchToolThemedIcons.Icon">
+                <keyboard-shortcut keymap="$default" first-keystroke="shift control G"/>
+            </action>
+        </group>
     </actions>
 
 </idea-plugin>

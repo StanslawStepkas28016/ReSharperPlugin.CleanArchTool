@@ -62,5 +62,53 @@ namespace ReSharperPlugin.CleanArchTool {
                 return ResourceManager.GetString("SettingsDescription", resourceCulture);
             }
         }
+        
+        internal static string CreateConfigurationFile {
+            get {
+                return ResourceManager.GetString("CreateConfigurationFile", resourceCulture);
+            }
+        }
+        
+        internal static string ConfigurationFileAlreadyCreated {
+            get {
+                return ResourceManager.GetString("ConfigurationFileAlreadyCreated", resourceCulture);
+            }
+        }
+        
+        internal static string ConfigurationFileMissing {
+            get {
+                return ResourceManager.GetString("ConfigurationFileMissing", resourceCulture);
+            }
+        }
+        
+        internal static string InvalidMaxClassLines {
+            get {
+                return ResourceManager.GetString("InvalidMaxClassLines", resourceCulture);
+            }
+        }
+        
+        internal static string MaxClassLinesWarning {
+            get {
+                return ResourceManager.GetString("MaxClassLinesWarning", resourceCulture);
+            }
+        }
+        
+        internal static string MaxClassMethodsWarning {
+            get {
+                return ResourceManager.GetString("MaxClassMethodsWarning", resourceCulture);
+            }
+        }
+        
+        internal static string MaxClassMethods {
+            get {
+                return ResourceManager.GetString("MaxClassMethods", resourceCulture);
+            }
+        }
+        
+        internal static string InvalidMaxClassMethods {
+            get {
+                return ResourceManager.GetString("InvalidMaxClassMethods", resourceCulture);
+            }
+        }
     }
 }

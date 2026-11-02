@@ -1,26 +1,24 @@
-using JetBrains.Application.Settings;
-using JetBrains.ReSharper.Resources.Settings;
-
 namespace ReSharperPlugin.CleanArchTool.Settings;
 
-[SettingsKey(typeof(CodeInspectionSettings), "CleanArchToolSettings")]
+/// <summary>
+///     Per-solution plugin settings, serialized to <see cref="CleanArchToolSettingsStore.ConfigurationFileName" />
+///     in the solution root directory.
+/// </summary>
 public class CleanArchToolSettings
 {
-    [SettingsEntry(15, "Max lines in a class")]
-    public int MaxClassLines;
+    public int MaxClassLines { get; set; } = 100;
+    
+    public int MaxClassMethods { get; set; } = 5;
 
-    [SettingsEntry("", "Presentation layer project file name")]
-    public string PresentationLayerProjectFileName;
+    public string PresentationLayerProjectFileName { get; set; } = "";
 
-    [SettingsEntry("", "Application layer project file name")]
-    public string ApplicationLayerProjectFileName;
+    public string ApplicationLayerProjectFileName { get; set; } = "";
 
-    [SettingsEntry("", "Infrastructure layer project file name")]
-    public string InfrastructureLayerProjectFileName;
+    public string InfrastructureLayerProjectFileName { get; set; } = "";
 
-    [SettingsEntry("", "Domain layer project file name")]
-    public string DomainLayerProjectFileName;
+    public string DomainLayerProjectFileName { get; set; } = "";
 
-    [SettingsEntry(null, "Shared libraries package names")]
-    public string SharedLibrariesPackageNames;
+    public string SharedLibrariesPackageNames { get; set; }
+
+    public CleanArchToolSettings Clone() => (CleanArchToolSettings)MemberwiseClone();
 }

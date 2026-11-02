@@ -1,38 +1,93 @@
-using JetBrains.Application;
-using JetBrains.Application.DataContext;
-using JetBrains.Application.Settings;
+using System;
+using System.IO;
+using JetBrains.Application.Parts;
+using JetBrains.ProjectModel;
+using JetBrains.Util;
+using Newtonsoft.Json;
 
 namespace ReSharperPlugin.CleanArchTool.Settings;
 
-[ShellComponent]
+[SolutionComponent(Instantiation.DemandAnyThreadSafe)]
 public class CleanArchToolSettingsStore
 {
-    private readonly ISettingsStore _settingsStore;
-    private readonly DataContexts _dataContexts;
-    
+    public const string ConfigurationFileName = ".cleanarchtool.json";
+
+    private static readonly ILogger Logger = JetBrains.Util.Logging.Logger.GetLogger<CleanArchToolSettingsStore>();
+
+    private readonly object _lock = new();
+
+    private CleanArchToolSettings _cachedSettings;
+    private DateTime _cachedWriteTime;
+    private readonly ISolution _solution;
+
     public CleanArchToolSettingsStore(
-        ISettingsStore settingsStore,
-        DataContexts dataContexts)
+        ISolution solution
+    )
     {
-        _settingsStore = settingsStore;
-        _dataContexts = dataContexts;
+        _solution = solution;
+    }
+
+    private string ConfigurationFilePath =>
+        Path.Combine(_solution.SolutionDirectory.FullPath, ConfigurationFileName);
+
+    public bool ConfigurationFileExists()
+    {
+        return File.Exists(ConfigurationFilePath);
     }
 
     public CleanArchToolSettings GetSettings()
     {
-        var boundSettings = BindSettingsStore();
-        return boundSettings.GetKey<CleanArchToolSettings>(SettingsOptimization.OptimizeDefault);;
+        lock (_lock)
+        {
+            var path = ConfigurationFilePath;
+            if (!File.Exists(path)) return new CleanArchToolSettings();
+
+            var writeTime = File.GetLastWriteTimeUtc(path);
+            if (_cachedSettings == null || writeTime != _cachedWriteTime)
+            {
+                _cachedSettings = ReadSettings(path);
+                _cachedWriteTime = writeTime;
+            }
+
+            return _cachedSettings.Clone();
+        }
     }
 
-    public void SetSettings(CleanArchToolSettings settings)
+    public void SetSettings(
+        CleanArchToolSettings settings
+    )
     {
-        var boundSettings = BindSettingsStore();
-        boundSettings.SetKey(settings, SettingsOptimization.OptimizeDefault);
+        lock (_lock)
+        {
+            File.WriteAllText(ConfigurationFilePath, JsonConvert.SerializeObject(settings, Formatting.Indented));
+            _cachedSettings = null;
+        }
     }
 
-    private IContextBoundSettingsStore BindSettingsStore()
+    public bool CreateConfigurationFile()
     {
-        var store = _settingsStore.BindToContextTransient(ContextRange.Smart((l, _) => _dataContexts.CreateOnSelection(l)));
-        return store;
+        lock (_lock)
+        {
+            if (ConfigurationFileExists()) return false;
+
+            SetSettings(new CleanArchToolSettings());
+            return true;
+        }
+    }
+
+    private CleanArchToolSettings ReadSettings(
+        string path
+    )
+    {
+        try
+        {
+            return JsonConvert.DeserializeObject<CleanArchToolSettings>(File.ReadAllText(path))
+                   ?? new CleanArchToolSettings();
+        }
+        catch (Exception e) when (e is JsonException or IOException)
+        {
+            Logger.Warn($"Failed to read {path}, falling back to default settings: {e.Message}");
+            return new CleanArchToolSettings();
+        }
     }
 }
