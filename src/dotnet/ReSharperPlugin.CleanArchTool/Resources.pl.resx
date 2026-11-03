@@ -36,7 +36,7 @@
         <value>Klasa przekracza limit linii. Obecny ustalony limit linii wynosi</value>
     </data>
     <data name="MaxClassMethodsWarning" xml:space="preserve">
-        <value>Klasa przekracza limit ilości method. Obecny ustalony limit metod wynosi</value>
+        <value>Klasa przekracza limit ilości metod. Obecny ustalony limit metod wynosi</value>
     </data>
     <data name="MaxClassMethods" xml:space="preserve">
         <value>Limit ilości metod w klasie</value>

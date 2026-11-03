@@ -49,6 +49,6 @@
         <value>Limit of methods in a class</value>
     </data>
     <data name="InvalidMaxClassMethods" xml:space="preserve">
-        <value>Limit  of methods in a class must be a postive integer.</value>
+        <value>Limit of methods in a class must be a positive integer.</value>
     </data>
 </root>

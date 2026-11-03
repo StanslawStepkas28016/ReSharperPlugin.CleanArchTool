@@ -18,7 +18,7 @@ public class ClassTooLongWarning : IHighlighting
     {
         _classLikeDeclaration = classLikeDeclaration;
         _documentRange = documentRange;
-        ToolTip = $"{Resources.MaxClassLines} {limit}.";
+        ToolTip = $"{Resources.MaxClassLinesWarning} {limit}.";
     }
 
     public bool IsValid()

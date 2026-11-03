@@ -4,6 +4,12 @@ using JetBrains.Rider.Backend.Env;
 
 namespace ReSharperPlugin.CleanArchTool;
 
+[ZoneDefinition(ZoneFlags.AutoEnable)]
 public interface ICleanArchToolZone : IZone, IRequire<IRiderPlatformZone>, IRequire<DaemonZone>
+{
+}
+
+[ZoneMarker]
+public class ZoneMarker : IRequire<ICleanArchToolZone>
 {
 }

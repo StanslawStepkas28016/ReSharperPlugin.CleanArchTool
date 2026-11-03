@@ -31,7 +31,9 @@ public class TooManyMethodsClassAnalyzer : ElementProblemAnalyzer<IClassLikeDecl
             .GetComponent<CleanArchToolSettingsStore>()
             .GetSettings();
 
-        if (methodDeclarationsCount <= settings.MaxClassMethods) return;
+        var maxClassMethods = System.Math.Max(1, settings.MaxClassMethods);
+        
+        if (methodDeclarationsCount <= maxClassMethods) return;
 
         consumer.AddHighlighting
         (
@@ -39,7 +41,7 @@ public class TooManyMethodsClassAnalyzer : ElementProblemAnalyzer<IClassLikeDecl
             (
                 classLikeDeclaration,
                 classLikeDeclaration.NameIdentifier.GetDocumentRange(),
-                settings.MaxClassMethods
+                maxClassMethods
             )
         );
     }

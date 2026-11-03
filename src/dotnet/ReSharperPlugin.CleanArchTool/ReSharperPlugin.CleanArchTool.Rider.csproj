@@ -43,6 +43,16 @@
       <DependentUpon>Resources.pl.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Update="Resources.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.en.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Update="Resources.pl.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.pl.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
   </ItemGroup>
 
 </Project>
