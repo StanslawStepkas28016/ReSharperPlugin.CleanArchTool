@@ -5,10 +5,7 @@ using JetBrains.Rider.Backend.Env;
 namespace ReSharperPlugin.CleanArchTool;
 
 [ZoneDefinition(ZoneFlags.AutoEnable)]
-// [ZoneDefinitionConfigurableFeature("Title", "Description", IsInProductSection: false)]
-public interface ICleanArchToolZone : IZone,
-    IRequire<IRiderPlatformZone>,
-    IRequire<DaemonZone>
+public interface ICleanArchToolZone : IZone, IRequire<IRiderPlatformZone>, IRequire<DaemonZone>
 {
 }
 
