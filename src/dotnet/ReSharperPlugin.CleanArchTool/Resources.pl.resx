@@ -44,4 +44,40 @@
     <data name="InvalidMaxClassMethods" xml:space="preserve">
         <value>Limit ilości metod w klasie musi być dodatnią liczbą całkowitą, która jest większa od zera.</value>
     </data>
+    <data name="MaxCtorArguments" xml:space="preserve">
+        <value>Limit ilości argumentów w konstruktorze</value>
+    </data>
+    <data name="InvalidMaxCtorArguments" xml:space="preserve">
+        <value>Limit ilości argumentów w konstruktorze musi być dodatnią liczbą całkowitą, która jest większa od zera.</value>
+    </data>
+    <data name="MaxCtorArgumentsWarning" xml:space="preserve">
+        <value>Konstruktor przekracza limit ilości argumentów. Obecny limit to</value>
+    </data>
+    <data name="PluginName" xml:space="preserve">
+        <value>CleanArchTool</value>
+    </data>
+    <data name="MaxMethodArguments" xml:space="preserve">
+        <value>Limit ilości argumentów w metodzie</value>
+    </data>
+    <data name="MaxMethodArgumentsWarning" xml:space="preserve">
+        <value>Metoda przekracza ustalony limit ilości argumentów. Obecny limit wynosi</value>
+    </data>
+    <data name="InvalidMaxMethodArguments" xml:space="preserve">
+        <value>Limit ilości argumentów w metodzie musi być dodatnią liczbą całkowitą, która jest większa od zera.</value>
+    </data>
+    <data name="CheckMultipleMethods" xml:space="preserve">
+        <value>Analizuj ilość argumentów dla wszystkich metod w klasie</value>
+    </data>
+    <data name="CheckBoxEnabled" xml:space="preserve">
+        <value>Włącz</value>
+    </data>
+    <data name="AnalyzersHeader" xml:space="preserve">
+        <value>Analizatory</value>
+    </data>
+    <data name="ConfigHeader" xml:space="preserve">
+        <value>Plik konfiguracyjny</value>
+    </data>
+    <data name="LayersHeader" xml:space="preserve">
+        <value>Warstwy Clean Architecture</value>
+    </data>
 </root>

@@ -2,25 +2,25 @@ using JetBrains.DocumentModel;
 using JetBrains.ReSharper.Feature.Services.Daemon;
 using JetBrains.ReSharper.Psi.CSharp.Tree;
 
-namespace ReSharperPlugin.CleanArchTool.Analyzers;
+namespace ReSharperPlugin.CleanArchTool.Warnings;
 
 [StaticSeverityHighlighting(Severity.WARNING, typeof(HighlightingGroupIds.GutterMarks))]
-public class TooManyMethodsClassWarning : IHighlighting
+public class ClassLikeDeclarationWarning : IHighlighting
 {
-    private readonly IClassLikeDeclaration _classLikeDeclaration;
     private readonly DocumentRange _documentRange;
+    private readonly IClassLikeDeclaration _classLikeDeclaration;
 
-    public TooManyMethodsClassWarning(
+    public ClassLikeDeclarationWarning(
         IClassLikeDeclaration classLikeDeclaration,
         DocumentRange documentRange,
-        int limit
+        string toolTipString
     )
     {
         _classLikeDeclaration = classLikeDeclaration;
         _documentRange = documentRange;
-        ToolTip = $"{Resources.MaxClassMethodsWarning} {limit}.";
+        ToolTip = toolTipString;
     }
-
+    
     public bool IsValid()
     {
         return _classLikeDeclaration.IsValid();

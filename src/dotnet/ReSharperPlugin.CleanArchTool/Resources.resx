@@ -51,4 +51,40 @@
     <data name="InvalidMaxClassMethods" xml:space="preserve">
         <value>Limit of methods in a class must be a positive integer.</value>
     </data>
+    <data name="MaxCtorArguments" xml:space="preserve">
+        <value>Limit of arguments in a constructor</value>
+    </data>
+    <data name="InvalidMaxCtorArguments" xml:space="preserve">
+        <value>Limit of arguments in a constructors must be a positive integer.</value>
+    </data>
+    <data name="MaxCtorArgumentsWarning" xml:space="preserve">
+        <value>Constructor exceeds the argument count limit. Current limit is</value>
+    </data>
+    <data name="PluginName" xml:space="preserve">
+        <value>CleanArchTool</value>
+    </data>
+    <data name="MaxMethodArguments" xml:space="preserve">
+        <value>Limit of arguments in a method</value>
+    </data>
+    <data name="MaxMethodArgumentsWarning" xml:space="preserve">
+        <value>Method exceeds the argument count limit. Current limit is</value>
+    </data>
+    <data name="InvalidMaxMethodArguments" xml:space="preserve">
+        <value>Limit of arguments in a methods must be a positive integer.</value>
+    </data>
+    <data name="CheckMultipleMethods" xml:space="preserve">
+        <value>Analyze argument count for multiple methods at once</value>
+    </data>
+    <data name="CheckBoxEnabled" xml:space="preserve">
+        <value>Enable</value>
+    </data>
+    <data name="AnalyzersHeader" xml:space="preserve">
+        <value>Analyzers</value>
+    </data>
+    <data name="ConfigHeader" xml:space="preserve">
+        <value>Configuration file</value>
+    </data>
+    <data name="LayersHeader" xml:space="preserve">
+        <value>Clean Architecture layers</value>
+    </data>
 </root>
