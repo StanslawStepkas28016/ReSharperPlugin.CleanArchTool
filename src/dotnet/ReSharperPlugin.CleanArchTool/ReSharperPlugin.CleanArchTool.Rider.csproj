@@ -1,58 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
-    <AssemblyName>ReSharperPlugin.CleanArchTool</AssemblyName>
-    <RootNamespace>$(AssemblyName)</RootNamespace>
-    <IsPackable>false</IsPackable>
-    <DefineConstants>$(DefineConstants);RIDER</DefineConstants>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net472</TargetFramework>
+        <AssemblyName>ReSharperPlugin.CleanArchTool</AssemblyName>
+        <RootNamespace>$(AssemblyName)</RootNamespace>
+        <IsPackable>false</IsPackable>
+        <DefineConstants>$(DefineConstants);RIDER</DefineConstants>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="JetBrains.Rider.SDK" Version="$(SdkVersion)" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="JetBrains.Rider.SDK" Version="$(SdkVersion)"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Resources.en.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.en.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Update="Resources.pl.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.pl.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Update="Resources.en.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.en.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Update="Resources.pl.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.pl.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Update="Resources.en.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.en.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Update="Resources.pl.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.pl.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Update="Resources.en.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.en.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Update="Resources.pl.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.pl.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-  </ItemGroup>
+    <ItemGroup>
+        <Compile Update="Resources.en.Designer.cs">
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.en.resx</DependentUpon>
+            <DesignTime>True</DesignTime>
+        </Compile>
+        <Compile Update="Resources.pl.Designer.cs">
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.pl.resx</DependentUpon>
+            <DesignTime>True</DesignTime>
+        </Compile>
+    </ItemGroup>
 
 </Project>

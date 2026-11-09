@@ -2,28 +2,28 @@ using JetBrains.DocumentModel;
 using JetBrains.ReSharper.Feature.Services.Daemon;
 using JetBrains.ReSharper.Psi.CSharp.Tree;
 
-namespace ReSharperPlugin.CleanArchTool.CodeInspections;
+namespace ReSharperPlugin.CleanArchTool.Warnings;
 
 [StaticSeverityHighlighting(Severity.WARNING, typeof(HighlightingGroupIds.GutterMarks))]
-public class ClassTooLongWarning : IHighlighting
+public class ConstructorDeclarationWarning : IHighlighting
 {
+    private readonly IConstructorDeclaration _constructorDeclaration;
     private readonly DocumentRange _documentRange;
-    private readonly IClassLikeDeclaration _classLikeDeclaration;
 
-    public ClassTooLongWarning(
-        IClassLikeDeclaration classLikeDeclaration,
+    public ConstructorDeclarationWarning(
+        IConstructorDeclaration constructorDeclaration,
         DocumentRange documentRange,
-        int limit
+        string toolTipString
     )
     {
-        _classLikeDeclaration = classLikeDeclaration;
+        _constructorDeclaration = constructorDeclaration;
         _documentRange = documentRange;
-        ToolTip = $"{Resources.MaxClassLinesWarning} {limit}.";
+        ToolTip = toolTipString;
     }
 
     public bool IsValid()
     {
-        return _classLikeDeclaration.IsValid();
+        return _constructorDeclaration.IsValid();
     }
 
     public DocumentRange CalculateRange()

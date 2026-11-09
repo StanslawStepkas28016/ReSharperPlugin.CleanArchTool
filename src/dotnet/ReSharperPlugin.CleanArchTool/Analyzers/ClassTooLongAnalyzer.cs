@@ -4,8 +4,8 @@ using JetBrains.ProjectModel;
 using JetBrains.ReSharper.Feature.Services.Daemon;
 using JetBrains.ReSharper.Psi.CSharp.Tree;
 using JetBrains.ReSharper.Psi.Tree;
-using ReSharperPlugin.CleanArchTool.CodeInspections;
 using ReSharperPlugin.CleanArchTool.Settings;
+using ReSharperPlugin.CleanArchTool.Warnings;
 
 namespace ReSharperPlugin.CleanArchTool.Analyzers;
 
@@ -17,7 +17,7 @@ namespace ReSharperPlugin.CleanArchTool.Analyzers;
 (
     typeof(IClassLikeDeclaration),
     HighlightingTypes =
-        [typeof(ClassTooLongWarning)]
+        [typeof(ClassLikeDeclarationWarning)]
 )]
 public class ClassTooLongAnalyzer : ElementProblemAnalyzer<IClassLikeDeclaration>
 {
@@ -27,6 +27,13 @@ public class ClassTooLongAnalyzer : ElementProblemAnalyzer<IClassLikeDeclaration
         IHighlightingConsumer consumer
     )
     {
+        var settings = classLikeDeclaration
+            .GetSolution()
+            .GetComponent<CleanArchToolSettingsStore>()
+            .GetSettings();
+
+        if (!settings.MaxClassLinesEnabled) return;
+
         var classBody = classLikeDeclaration.Body;
         if (classBody == null) return;
 
@@ -48,22 +55,17 @@ public class ClassTooLongAnalyzer : ElementProblemAnalyzer<IClassLikeDeclaration
 
         var lineCount = (int)(endLine - startLine) - 1;
 
-        var settings = classLikeDeclaration
-            .GetSolution()
-            .GetComponent<CleanArchToolSettingsStore>()
-            .GetSettings();
-
         var limit = Math.Max(1, settings.MaxClassLines);
 
         if (lineCount <= limit) return;
 
         consumer.AddHighlighting
         (
-            new ClassTooLongWarning
+            new ClassLikeDeclarationWarning
             (
                 classLikeDeclaration,
                 classLikeDeclaration.NameIdentifier.GetDocumentRange(),
-                limit
+                $"{Resources.PluginName}: {Resources.MaxClassLinesWarning} {limit}."
             )
         );
     }

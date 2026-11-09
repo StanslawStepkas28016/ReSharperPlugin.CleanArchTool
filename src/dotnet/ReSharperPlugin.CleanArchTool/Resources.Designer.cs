@@ -110,5 +110,77 @@ namespace ReSharperPlugin.CleanArchTool {
                 return ResourceManager.GetString("InvalidMaxClassMethods", resourceCulture);
             }
         }
+        
+        internal static string MaxCtorArguments {
+            get {
+                return ResourceManager.GetString("MaxCtorArguments", resourceCulture);
+            }
+        }
+        
+        internal static string InvalidMaxCtorArguments {
+            get {
+                return ResourceManager.GetString("InvalidMaxCtorArguments", resourceCulture);
+            }
+        }
+        
+        internal static string MaxCtorArgumentsWarning {
+            get {
+                return ResourceManager.GetString("MaxCtorArgumentsWarning", resourceCulture);
+            }
+        }
+        
+        internal static string PluginName {
+            get {
+                return ResourceManager.GetString("PluginName", resourceCulture);
+            }
+        }
+        
+        internal static string MaxMethodArguments {
+            get {
+                return ResourceManager.GetString("MaxMethodArguments", resourceCulture);
+            }
+        }
+        
+        internal static string MaxMethodArgumentsWarning {
+            get {
+                return ResourceManager.GetString("MaxMethodArgumentsWarning", resourceCulture);
+            }
+        }
+        
+        internal static string InvalidMaxMethodArguments {
+            get {
+                return ResourceManager.GetString("InvalidMaxMethodArguments", resourceCulture);
+            }
+        }
+        
+        internal static string CheckMultipleMethods {
+            get {
+                return ResourceManager.GetString("CheckMultipleMethods", resourceCulture);
+            }
+        }
+        
+        internal static string CheckBoxEnabled {
+            get {
+                return ResourceManager.GetString("CheckBoxEnabled", resourceCulture);
+            }
+        }
+        
+        internal static string AnalyzersHeader {
+            get {
+                return ResourceManager.GetString("AnalyzersHeader", resourceCulture);
+            }
+        }
+        
+        internal static string ConfigHeader {
+            get {
+                return ResourceManager.GetString("ConfigHeader", resourceCulture);
+            }
+        }
+        
+        internal static string LayersHeader {
+            get {
+                return ResourceManager.GetString("LayersHeader", resourceCulture);
+            }
+        }
     }
 }

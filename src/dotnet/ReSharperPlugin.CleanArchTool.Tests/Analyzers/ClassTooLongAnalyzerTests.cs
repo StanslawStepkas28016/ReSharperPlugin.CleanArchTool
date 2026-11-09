@@ -3,7 +3,7 @@ using JetBrains.ReSharper.Feature.Services.Daemon;
 using JetBrains.ReSharper.FeaturesTestFramework.Daemon;
 using JetBrains.ReSharper.Psi;
 using NUnit.Framework;
-using ReSharperPlugin.CleanArchTool.CodeInspections;
+using ReSharperPlugin.CleanArchTool.Warnings;
 
 namespace ReSharperPlugin.CleanArchTool.Tests.Analyzers;
 
@@ -18,7 +18,7 @@ public class ClassTooLongAnalyzerTests : CSharpHighlightingTestBase
         IContextBoundSettingsStore settingsStore
     )
     {
-        return highlighting is ClassTooLongWarning;
+        return highlighting is ClassLikeDeclarationWarning;
     }
 
     [Test]
