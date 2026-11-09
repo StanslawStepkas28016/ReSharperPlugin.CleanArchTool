@@ -26,12 +26,14 @@ public class TooManyArgumentsForCtorAnalyzer : ElementProblemAnalyzer<IConstruct
         IHighlightingConsumer consumer
     )
     {
-        var argumentsCount = constructorDeclaration.ParameterDeclarations.Count;
-
         var settings = constructorDeclaration
             .GetSolution()
             .GetComponent<CleanArchToolSettingsStore>()
             .GetSettings();
+
+        if (!settings.MaxCtorArgumentsEnabled) return;
+
+        var argumentsCount = constructorDeclaration.ParameterDeclarations.Count;
 
         var limit = Math.Max(1, settings.MaxCtorArguments);
 

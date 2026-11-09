@@ -3,7 +3,6 @@ using JetBrains.ProjectModel;
 using JetBrains.ReSharper.Feature.Services.Daemon;
 using JetBrains.ReSharper.Psi.CSharp.Tree;
 using JetBrains.ReSharper.Psi.Tree;
-using JetBrains.Util.Logging;
 using ReSharperPlugin.CleanArchTool.Settings;
 using ReSharperPlugin.CleanArchTool.Warnings;
 
@@ -28,6 +27,8 @@ public class TooManyArgumentsForMethodAnalyzer : ElementProblemAnalyzer<IClassLi
             .GetComponent<CleanArchToolSettingsStore>()
             .GetSettings();
 
+        if (!settings.MaxMethodArgumentsEnabled) return;
+
         var limit = Math.Max(1, settings.MaxMethodArguments);
 
         var methodDeclarationsEnumerable = classLikeDeclaration.MethodDeclarationsEnumerable;
@@ -45,7 +46,7 @@ public class TooManyArgumentsForMethodAnalyzer : ElementProblemAnalyzer<IClassLi
                         $"{Resources.PluginName}: {Resources.MaxMethodArgumentsWarning} {limit}."
                     )
                 );
-                
+
                 if (!settings.CheckMultipleMethods) return;
             }
         }

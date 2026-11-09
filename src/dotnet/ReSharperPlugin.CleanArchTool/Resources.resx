@@ -70,7 +70,7 @@
         <value>Method exceeds the argument count limit. Current limit is</value>
     </data>
     <data name="InvalidMaxMethodArguments" xml:space="preserve">
-        <value>Limit of arguments in a methods must be a positive integer.</value>
+        <value>Limit of arguments in a method must be a positive integer.</value>
     </data>
     <data name="CheckMultipleMethods" xml:space="preserve">
         <value>Analyze argument count for multiple methods at once</value>
